@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 250px;
+}
+#ballon {
+	width: 100px;
+	height: 100px;
+	background: #a31722;
+	border-radius: 100%;
+	cursor: pointer;
+	transition: all 0.5s;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+	<div id="ballon"></div>
+</div>
+<script>
+var num = 0;
+document.querySelector('#ballon').onclick = function() {
+	num = num + 1;
+	if(num >= 3) {
+		this.style.opacity = 0;
+	}else{
+		this.style.transform = 'scale(' + (1 + num * 0.5 ) + ')';
+	}
+}
+</script>
+</body>
+</html>

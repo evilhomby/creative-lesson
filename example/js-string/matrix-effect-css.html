@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Matrix Effect</title>
+<style>
+html, body {
+	margin: 0px;
+	padding: 0px;
+	background: #00130b;
+	overflow: hidden;
+}
+#container {
+	width: 100%;
+	height: 100vh;
+	position: relative;
+}
+.line {
+	width: 1em;
+	position: absolute;
+	overflow: hidden;
+}
+.char-container {
+	animation: 5s falling infinite linear;
+	transform: translateY(-100%);
+}
+.char {
+	text-align: center;
+	color: #64c38e;
+}
+.char:last-child {
+	width: 100%;
+	color: #fff;
+	overflow: hidden;
+	height: 1em;
+	line-height: 1em;
+}
+.last-char-container {
+	animation: 10s random steps(50) infinite;
+}
+@keyframes falling {
+	90% {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+		transform: translateY(0%);
+	}
+}
+@keyframes random {
+	to {
+		transform: translateY(-100%);
+	}
+}
+</style>
+</head>
+
+<body>
+<div id="container"></div>
+<script>
+var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz~!@#$%^&*()_';
+var arr = str.split('');
+function randomChar() {
+	return arr[Math.floor(Math.random() * arr.length)];
+}
+
+var container = document.querySelector('#container');
+var lineCharNum = 50;
+var lineNum = 50;
+for(var i = 0; i < lineNum; i++) {
+	var line = document.createElement('div');
+	line.classList.add('line');
+	line.style.top = Math.floor(Math.random() * 401) - 200 + 'px';
+	line.style.left = Math.floor(Math.random() * window.innerWidth) + 'px'
+	line.style.filter = 'blur(' + Math.floor(Math.random() * 3) + 'px)';
+	container.append(line);
+
+	var charContainer = document.createElement('div');
+	charContainer.classList.add('char-container');
+	charContainer.style.animationDuration = (Math.random() * 5 + 1) + 's';
+	line.append(charContainer);
+	for(var j = 0; j < lineCharNum; j++) {
+		var char = document.createElement('div');
+		char.classList.add('char');
+		char.style.opacity = (1 / lineCharNum) * (j + 1);
+		char.innerHTML = randomChar();
+		charContainer.append(char);
+		if(j == lineCharNum - 1) {
+			char.innerHTML = '';
+			char.classList.add('last-char');
+			var lastCharContainer = document.createElement('div');
+			lastCharContainer.classList.add('last-char-container');
+			char.append(lastCharContainer);
+			for(var k = 0; k < lineCharNum; k++) {
+				var el = document.createElement('div');
+				el.innerHTML = randomChar();
+				lastCharContainer.append(el);
+			}
+		}
+	}
+}
+
+</script>
+</body>
+</html>

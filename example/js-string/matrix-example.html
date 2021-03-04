@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+#line {
+	overflow: hidden;
+}
+#char-container {
+	transform: translateY(-100%);
+	animation: 1s falling linear infinite;
+}
+.char:last-child {
+	color: #f00;
+}
+@keyframes falling {
+	to {
+		transform: translateY(0%);
+	}
+}
+</style>
+</head>
+
+<body>
+<div id="line">
+	<div id="char-container"></div>
+</div>
+<script>
+//宣告變數存放想要隨機選出的文字，可自行增減、加入中文。
+var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz~!@#$%^&*()_';
+
+//使用 split() 的方式，隨機取出一個字元
+var arr = str.split('');
+function randomChar() {
+	return arr[Math.floor(Math.random() * arr.length)];
+}
+
+//補充：使用 substr() 的方式，隨機取出一個字元
+function randomCharSubstr() {
+	return str.substr(Math.floor(Math.random() * str.length), 1);
+}
+
+var container = document.querySelector('#char-container');
+var charNum = 10;
+for(var i = 0; i < charNum; i++) {
+	var div = document.createElement('div');
+	div.classList.add('char');
+	//呼叫 randomChar() 函式，隨機取得一個字元後指定為要素的內容
+	div.innerHTML = randomChar();
+	//依產生的順序調整透明度
+	//加 1 是為了不要產生透明度為 0 的情況
+	div.style.opacity = 1 / charNum * (i + 1);
+	container.append(div);
+}
+</script>
+</body>
+</html>

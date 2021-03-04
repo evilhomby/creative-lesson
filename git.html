@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>版本控制: Git 安裝與常用指令操作 | 創意組課程</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/creative-lesson/assets/css/0.styles.b86d061e.css" as="style"><link rel="preload" href="/creative-lesson/assets/js/app.b83ff143.js" as="script"><link rel="preload" href="/creative-lesson/assets/js/6.1f0954de.js" as="script"><link rel="prefetch" href="/creative-lesson/assets/js/10.bd382906.js"><link rel="prefetch" href="/creative-lesson/assets/js/11.937141ad.js"><link rel="prefetch" href="/creative-lesson/assets/js/12.08ec111f.js"><link rel="prefetch" href="/creative-lesson/assets/js/13.3e570d53.js"><link rel="prefetch" href="/creative-lesson/assets/js/14.0d427ab7.js"><link rel="prefetch" href="/creative-lesson/assets/js/15.78d7612b.js"><link rel="prefetch" href="/creative-lesson/assets/js/16.ad284ca3.js"><link rel="prefetch" href="/creative-lesson/assets/js/17.b06dc6be.js"><link rel="prefetch" href="/creative-lesson/assets/js/18.c10b2b50.js"><link rel="prefetch" href="/creative-lesson/assets/js/19.45d7500a.js"><link rel="prefetch" href="/creative-lesson/assets/js/2.7974f97d.js"><link rel="prefetch" href="/creative-lesson/assets/js/20.95dca04b.js"><link rel="prefetch" href="/creative-lesson/assets/js/21.4910b67e.js"><link rel="prefetch" href="/creative-lesson/assets/js/22.01d6dded.js"><link rel="prefetch" href="/creative-lesson/assets/js/23.7ca02cc1.js"><link rel="prefetch" href="/creative-lesson/assets/js/3.9d831ad6.js"><link rel="prefetch" href="/creative-lesson/assets/js/4.b41941f5.js"><link rel="prefetch" href="/creative-lesson/assets/js/5.a8860c94.js"><link rel="prefetch" href="/creative-lesson/assets/js/7.2800653b.js"><link rel="prefetch" href="/creative-lesson/assets/js/8.354eb9fa.js"><link rel="prefetch" href="/creative-lesson/assets/js/9.a2288951.js">
+    <link rel="stylesheet" href="/creative-lesson/assets/css/0.styles.b86d061e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/creative-lesson/" class="home-link router-link-active"><!----> <span class="site-name">創意組課程</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/creative-lesson/" class="nav-link">Home</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/creative-lesson/" class="nav-link">Home</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/creative-lesson/forms.html" class="sidebar-link">關於 HTML Forms</a></li><li><a href="/creative-lesson/google-form.html" class="sidebar-link">借用 Google 表單 + 自訂樣式</a></li><li><a href="/creative-lesson/sublime-server.html" class="sidebar-link">SublimeServer 套件</a></li><li><a href="/creative-lesson/xampp.html" class="sidebar-link">使用 XAMPP 建立伺服器</a></li><li><a href="/creative-lesson/js-basic01.html" class="sidebar-link">JavaScript 基礎</a></li><li><a href="/creative-lesson/js-basic02.html" class="sidebar-link">JavaScript 基礎 II</a></li><li><a href="/creative-lesson/js-basic03.html" class="sidebar-link">JavaScript 基礎 III</a></li><li><a href="/creative-lesson/js-basic04.html" class="sidebar-link">JavaScript 基礎 IV</a></li><li><a href="/creative-lesson/js-array.html" class="sidebar-link">關於 JavaScript 的陣列</a></li><li><a href="/creative-lesson/js-number.html" class="sidebar-link">關於 JavaScript 的數值常用操作</a></li><li><a href="/creative-lesson/js-exam01.html" class="sidebar-link">課程進度測驗</a></li><li><a href="/creative-lesson/js-string.html" class="sidebar-link">關於 JavaScript 的字串常用操作</a></li><li><a href="/creative-lesson/exercise-matrix-effect.html" class="sidebar-link">關於 Matrix Effect 實作流程</a></li><li><a href="/creative-lesson/js-datetime.html" class="sidebar-link">關於 JavaScript 的日期、時間</a></li><li><a href="/creative-lesson/js-array-02.html" class="sidebar-link">關於 JavaScript 的陣列常用操作</a></li><li><a href="/creative-lesson/exercise-bead-creator.html" class="sidebar-link">實作練習：串珠編輯器</a></li><li><a href="/creative-lesson/tween.html" class="sidebar-link">動畫效果的函式庫: TweenMax/TweenLite</a></li><li><a href="/creative-lesson/owlcarousel.html" class="sidebar-link">jQuery Slider 函式庫: Owl Carousel 2</a></li><li><a href="/creative-lesson/git.html" class="active sidebar-link">版本控制: Git 安裝與常用指令操作</a><ul class="sidebar-sub-headers"></ul></li></ul> </div> <div class="page"> <div class="content"><h1 id="版本控制-git-安裝與常用指令操作"><a href="#版本控制-git-安裝與常用指令操作" aria-hidden="true" class="header-anchor">#</a> 版本控制: Git 安裝與常用指令操作</h1> <h3 id="mac-系統"><a href="#mac-系統" aria-hidden="true" class="header-anchor">#</a> Mac 系統</h3> <p>Mac 系統使用內建終端機，可下載色彩配置 <a href="download/Custom.terminal">Tomorrow Night</a> 並匯入使用。
+終端機開啟預設的位置是登入帳號的家目錄，通常以 <code>~</code> 符號表示。</p> <p>網路上許多<a href="http://bit.ly/2T2AKdP" target="_blank" rel="noopener noreferrer">教學<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>推薦 <a href="https://www.iterm2.com/features.html" target="_blank" rel="noopener noreferrer">iTerm2<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 這套軟體，有興趣也可以試試。</p> <p>附上更多<a href="https://iterm2colorschemes.com" target="_blank" rel="noopener noreferrer">色彩配置<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>可自行選擇或於終端機中設定。</p> <h3 id="win-系統"><a href="#win-系統" aria-hidden="true" class="header-anchor">#</a> Win 系統</h3> <p>Win 系統請先安裝 <a href="https://git-scm.com/download/win" target="_blank" rel="noopener noreferrer">git<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>，安裝過程建議全部使用預設值。
+安裝完成後於任一資料夾按右鍵，並選擇「Git Bash Here」</p> <h3 id="檔案與目錄操作常用的指令"><a href="#檔案與目錄操作常用的指令" aria-hidden="true" class="header-anchor">#</a> 檔案與目錄操作常用的指令</h3> <p>以下的指令在 Mac/Win 上都相同</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># cd = change directory 移動目錄</span>
+<span class="token function">cd</span> foldername
+<span class="token function">cd</span> parentFolder/chlidFolder
+
+<span class="token comment"># 回上一層</span>
+<span class="token function">cd</span> <span class="token punctuation">..</span>
+
+<span class="token comment"># 回家目錄</span>
+<span class="token function">cd</span> ~
+
+<span class="token comment"># 顯示目前路徑內項目</span>
+<span class="token function">ls</span>
+
+<span class="token comment"># 新增資料夾，如有空格請用引號包起來</span>
+<span class="token function">mkdir</span> foldername
+<span class="token function">mkdir</span> <span class="token string">'hello world'</span>
+
+<span class="token comment"># 新增多個資料夾</span>
+<span class="token function">mkdir</span> css images js
+
+<span class="token comment"># 新增檔案</span>
+<span class="token function">touch</span> example.html
+
+<span class="token comment"># 新增多個檔案</span>
+<span class="token function">touch</span> reset.css main.css theme.css
+
+<span class="token comment"># 移動或更換檔名</span>
+<span class="token function">mv</span> nameA nameB
+
+<span class="token comment"># 刪除檔案</span>
+<span class="token function">rm</span> filename
+
+<span class="token comment"># 刪除資料夾</span>
+<span class="token function">rm</span> -r folderName
+</code></pre></div><h5 id="實作練習"><a href="#實作練習" aria-hidden="true" class="header-anchor">#</a> 實作練習</h5> <p>請以指令產生以下結構</p> <pre style="color:#fff">project/
+├── css/
+│    ├── main.css
+│    ├── reset.css
+│    └── theme.css
+├── images/
+│    ├── bg.png
+│    └── logo.png
+├── js/
+│    └── main.js
+└── index.html
+</pre> <h3 id="git-的安裝"><a href="#git-的安裝" aria-hidden="true" class="header-anchor">#</a> Git 的安裝</h3> <p>於 Git 官網下載系統對應的安裝程式，依步驟安裝即可。</p> <p>以 <a href="http://bit.ly/2WqUU4Z" target="_blank" rel="noopener noreferrer">Mac 系統<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>為例，安裝完成後開啟「終端機」並輸入</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">git</span> --version
+</code></pre></div><p>若有回饋版本則安裝成功。</p> <h3 id="設定使用者資訊"><a href="#設定使用者資訊" aria-hidden="true" class="header-anchor">#</a> 設定使用者資訊</h3> <p>開始使用 Git 前，先設定好使用者資訊，才能記錄提交者資訊喲。 (全域的設定資訊存在使用者家目錄的 .gitconfig 檔案中)</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">git</span> config --global user.name <span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>
+<span class="token function">git</span> config --global user.email <span class="token operator">&lt;</span>email<span class="token operator">&gt;</span>
+</code></pre></div><h3 id="新專案，建立-git-repository"><a href="#新專案，建立-git-repository" aria-hidden="true" class="header-anchor">#</a> 新專案，建立 Git Repository</h3> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">git</span> init
+</code></pre></div><p>執行上述指令，在資料夾中會產生 .git 資料夾，所有與版本控制相關的檔案都存放於此。若在 Mac 系統上看不到可使用快速鍵 <code>cmd + shift + .</code> 切換隱藏檔的顯示或隱藏</p> <blockquote><p>在 Mac 系統中檔案或資料夾只要以 . 開頭即為系統隱藏</p></blockquote> <h3 id="版本控制的簡易流程"><a href="#版本控制的簡易流程" aria-hidden="true" class="header-anchor">#</a> 版本控制的簡易流程</h3> <p>簡而言之，流程就是「<code>git init</code> &gt; 新增或修改檔案 &gt; <code>git add</code> &gt; <code>git commit</code>」</p> <p>每個步驟都可以使用 <code>git status</code> 來確認目前的狀態，並使用 <code>git log</code> 來查詢提交的記錄。</p> <p>本課程總共學習到以下幾個 git 指令</p> <ul><li><code>git config</code>: 設定 git 參數用。</li> <li><code>git init</code>: 建立版本控管庫。</li> <li><code>git add</code>: 將檔案增加到暫存區 (將東西拿到超商櫃台等待寄送)</li> <li><code>git commit</code>: 填寫訊息並將檔案提交到版本庫中。 (將寄送資訊、備註後將東西寄出)</li> <li><code>git status</code>: 查詢狀態</li> <li><code>git log</code>: 查詢提交記錄</li></ul> <h5 id="新增-修改檔案"><a href="#新增-修改檔案" aria-hidden="true" class="header-anchor">#</a> 新增/修改檔案</h5> <p>當新增檔案時，新檔案並未列入追蹤，狀態為 untracked</p> <p>要將檔案列入追蹤使用</p> <ul><li><code>git add filename</code>: 加入指定檔案</li> <li><code>git add .</code>: 一次將目前路徑內所有檔案加入 (含子資料夾)</li> <li><code>git add --all</code>: 將整個專案資料夾的檔案加入</li></ul> <p>而修改檔案一樣使用相同的指令，將檔案加入暫存區。</p> <h5 id="提交"><a href="#提交" aria-hidden="true" class="header-anchor">#</a> 提交</h5> <p>提交的意思即為將暫存區裡的檔案，移動到版本記錄庫中。如提交的訊息較少，建議用以下指令進行快速提交</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">git</span> commit -m <span class="token string">'this is a message'</span>
+</code></pre></div><p>若使用 <code>git commit</code> 指令來進行提交，可輸入多行的訊息，此時預設會以 Vi (編輯器) 來進行操作。</p> <ul><li>按下 <code>a</code> 鍵，並確認左下角出現 <code>-- INSERT --</code> 即進入編輯模式，輸入提交訊息。</li> <li>輸入完成後按下 <code>ESC</code> 鍵，跳出編輯模式</li> <li>輸入 <code>:wq</code> 存檔並離開即完成提交。</li></ul> <h5 id="查詢記錄"><a href="#查詢記錄" aria-hidden="true" class="header-anchor">#</a> 查詢記錄</h5> <p>提交後可用 <code>git log</code> 來查詢提交的記錄，記錄上會有 SHA1 值、提交者的相關資訊、時間與提交訊息。</p> <h3 id="sublime"><a href="#sublime" aria-hidden="true" class="header-anchor">#</a> Sublime</h3> <p>安裝 Sublime Text 3.2 以上版本與 <a href="https://packagecontrol.io/packages/Git" target="_blank" rel="noopener noreferrer">Git<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 擴充套件。
+可用 <code>cmd+shift+p</code> 開啟命令配盤，並輸入相關指令。如：</p> <div class="language- extra-class"><pre class="language-text"><code>Git Quick Commit (current file) = git add filename + git commit
+</code></pre></div><h3 id="補充"><a href="#補充" aria-hidden="true" class="header-anchor">#</a> 補充</h3> <p>Git 不會對資料夾進行控管，如果想要保留特定的資料夾需要自行加入檔案。例：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 建立 important 資料夾</span>
+<span class="token function">mkdir</span> important
+
+<span class="token comment"># 於資料夾中新增一個 .cd-keep 的系統隱藏檔</span>
+<span class="token function">touch</span> important/.cd-keep
+
+<span class="token comment"># 確認是否列入控管</span>
+<span class="token function">git</span> status
+</code></pre></div><h3 id="參考資料"><a href="#參考資料" aria-hidden="true" class="header-anchor">#</a> 參考資料</h3> <p>推薦高見龍編寫的「<a href="https://gitbook.tw/" target="_blank" rel="noopener noreferrer">為你自己學 Git<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>」，個人認為目前網路上最易理解的課程。</p></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/creative-lesson/owlcarousel.html" class="prev">
+          jQuery Slider 函式庫: Owl Carousel 2
+        </a></span> <!----></p></div> </div> <!----></div></div>
+    <script src="/creative-lesson/assets/js/app.b83ff143.js" defer></script><script src="/creative-lesson/assets/js/6.1f0954de.js" defer></script>
+  </body>
+</html>

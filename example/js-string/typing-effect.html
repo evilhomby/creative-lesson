@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+
+<body>
+<div id="line">
+<span id="text"></span><span id="cursor"></span>
+</div>
+<script>
+var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz~!@#$%^&*()_';
+var arr = str.split('');
+function randomChar() {
+	return arr[Math.floor(Math.random() * arr.length)];
+}
+var cursor = document.querySelector('#cursor');
+var cursorInterval = setInterval(function() {
+	cursor.innerHTML = randomChar();
+}, 60);
+
+var text = document.querySelector('#text');
+var realStr = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit veniam aliquam, aspernatur doloremque cupiditate sed blanditiis, quaerat neque odio nulla omnis modi nesciunt mollitia sequi molestias eveniet beatae, dicta nisi.';
+var realArr = realStr.split('');
+var textInterval = setInterval(function() {
+	var length = text.innerHTML.length;
+	if(length == realArr.length) {
+		clearInterval(cursorInterval);
+		clearInterval(textInterval);
+		cursor.style.display = 'none';
+		return;
+	}
+	text.innerHTML += realArr[length];
+}, 100);
+</script>
+</body>
+</html>

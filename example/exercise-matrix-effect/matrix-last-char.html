@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+.char {
+	width: 2em;
+	height: 2em;
+	line-height: 2em;
+	text-align: center;
+}
+.last-char-visible-area {
+	height: 2em;
+	border: 1px solid #f00;
+	overflow: hidden;
+}
+.last-char-container {
+	animation: 2s move steps(3) infinite;
+}
+
+.last-char-container div {
+	width: 2em;
+	height: 2em;
+	outline: 1px solid #0f0;
+	text-align: center;
+	line-height: 2em;
+}
+@keyframes move {
+	to {
+		transform: translateY(-100%);
+	}
+}
+</style>
+</head>
+
+<body>
+
+<div class="line">
+	<div class="char">A</div>
+	<div class="char">B</div>
+	<div class="char">C</div>
+	<div class="char">D</div>
+	<div class="char">E</div>
+	<div class="char">F</div>
+	<div class="char">G</div>
+	<div class="char">
+		<div class="last-char-visible-area">
+			<div class="last-char-container">
+				<div>X</div>
+				<div>Y</div>
+				<div>Z</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

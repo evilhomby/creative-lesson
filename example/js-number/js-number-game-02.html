@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+html, body {
+	margin: 0px;
+	padding: 0px;
+}
+#wrapper {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+#msg {
+	height: 1.5rem;
+}
+#cards-wrapper {
+	height: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+}
+.card {
+	color: #fff;
+	padding-top: 20px;
+	text-align: center;
+	background: #2BBABA;
+	border-radius: 5px;
+	height: 200px;
+	width: 100px;
+	margin: 0px 20px;
+	transition: 0.3s all;
+}
+.card.selected {
+	height: 250px;
+}
+.card.bingo {
+	background: #e57bcc;
+}
+button {
+	opacity: 0;
+	background: #2BBABA;
+	border-radius: 5px;
+	padding: 0px 50px;
+	height: 80px;
+	line-height: 80px;
+	color: #fff;
+	font-size: 2rem;
+	border: none;
+	transition: 0.3s opacity;
+}
+button:focus {
+	outline: none;
+}
+</style>
+</head>
+
+<body>
+<div id="wrapper">
+	<button>Play</button>
+	<div id="msg"></div>
+	<div id="cards-wrapper">
+		<div class="card">A</div>
+		<div class="card">B</div>
+		<div class="card">C</div>
+		<div class="card">D</div>
+		<div class="card">E</div>
+		<div class="card">F</div>
+	</div>
+</div>
+<script>
+var button = document.querySelector('button');
+var select;
+var cards = document.querySelectorAll('.card');
+cards.forEach(function(v, i) {
+	cards[i].n = i;
+	cards[i].onclick = function() {
+		cards.forEach(function(vv, ii) {
+			cards[ii].classList.remove('selected');
+		});
+		this.classList.add('selected');
+		select = this.n;
+		button.style.opacity = 1;
+	}
+});
+var msg = document.querySelector('#msg');
+var playAgain = false;
+button.onclick = function() {
+	if(playAgain == false) {
+		var random = Math.floor(Math.random() * cards.length); 
+		cards[random].classList.add('bingo');
+		if(random == select) {
+			msg.innerHTML = 'Bingo';
+		}else{
+			msg.innerHTML = 'Try Again';
+		}
+		this.innerHTML = 'Play Again';
+	}else{
+		button.style.opacity = 0;
+		select = undefined;
+		cards.forEach(function(v, i) {
+			cards[i].classList.remove('selected', 'bingo');
+		});
+		msg.innerHTML = '';
+		this.innerHTML = 'Play'
+	}
+	playAgain = !playAgain;
+
+}
+</script>
+</body>
+</html>

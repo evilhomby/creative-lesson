@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link href="https://fonts.googleapis.com/css?family=Baloo&display=swap" rel="stylesheet">
+<style>
+.container {
+	text-align:center;
+	font: 3em/1.5em Baloo, "微軟正黑體";
+}
+.container span {
+	width: 100px;
+	display: inline-block;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+	<h5>跨年倒數</h5>
+	<span id="days"></span>:<span id="hours"></span>:<span id="minutes"></span>:<span id="seconds"></span>
+</div>
+<script>
+var countdownDate = new Date('2020-01-01T00:00:00');
+var date = new Date();
+var seconds = Math.floor((countdownDate.getTime() - date.getTime()) / 1000); 
+var msg = document.querySelector('h5');
+var d = document.querySelector('#days');
+var h = document.querySelector('#hours');
+var m = document.querySelector('#minutes');
+var s = document.querySelector('#seconds');
+
+var interval = setInterval(function() {
+	countdown();
+}, 1000);
+
+
+function countdown(){
+	var dd = Math.floor(seconds / (24 * 60 * 60));
+	var hh = Math.floor((seconds - (dd * 24 * 60 * 60)) / (60 * 60));
+	var mm = Math.floor((seconds - (dd * 24 * 60 * 60) - (hh * 60 * 60)) / 60);
+	var ss = seconds - (dd * 24 * 60 * 60) - (hh * 60 * 60) - (mm * 60);
+	d.innerHTML = dd;
+	h.innerHTML = hh;
+	m.innerHTML = mm;
+	s.innerHTML = ss;
+	
+	if(seconds == 0){
+		clearInterval(interval);
+		msg.innerHTML = 'Happy New Year!!';
+	}
+	seconds--;
+}
+
+countdown();
+</script>
+</body>
+</html>

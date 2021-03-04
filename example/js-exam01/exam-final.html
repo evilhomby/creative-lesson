@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+html, body {
+	margin: 0px;
+	padding: 0px;
+}
+#wrapper {
+	font-family: "微軟正黑體";
+	margin: 100px auto;
+	width: 1024px;
+	height: 600px;
+	background: #8bdcb7;
+	border-radius: 10px;
+	overflow: hidden;
+}
+#game-wrapper {
+	transition: 0.5s transform;
+}
+#start-wrapper, #block-wrapper, #end-wrapper{
+	width: 100%;
+	height: 600px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.msg {
+	color: #fff;
+	font-size: 6rem;
+	text-align: center;
+	padding-bottom: 1.5rem;
+}
+.btn-group {
+	text-align: center;
+}
+button {
+	color: #fff;
+	padding: 15px 20px;
+	background: #3eaf7c;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	width: auto;
+}
+button:focus {
+	outline: none;
+}
+#block-container {
+	margin: 0px auto;
+	width: 400px;
+	height: 400px;
+	display: flex;
+	flex-wrap: wrap;
+	background: #fff;
+}
+.block {
+	margin: 0px;
+	padding: 0px;
+	width: 20%;
+	height: 20%;
+	display: inline-block;
+	background: #efefef;
+	outline: 1px solid rgba(255,255,255,0.5);
+	cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+<div id="wrapper">
+	<div id="game-wrapper">
+		<div id="start-wrapper">
+			<div class="msg">選色挑戰</div>
+			<div class="btn-group">
+				<button>開始</button>
+			</div>
+		</div>
+		<div id="block-wrapper">
+			<div class="msg"></div>
+			<div id="block-container"></div>
+		</div>
+		<div id="end-wrapper">
+			<div class="msg"></div>
+			<div class="btn-group">
+				<button>再次挑戰</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+var blocksNum = 4;
+var level = 1;
+var random = 0;
+var color;
+
+var gameWrapper = document.querySelector('#game-wrapper');
+
+//開始按鍵按下時執行
+var startBtn = document.querySelector('#start-wrapper button');
+startBtn.onclick = function() {
+	gameWrapper.style.transform = 'translateY(-600px)';
+	gameStart();
+}
+
+var blockMsg = document.querySelector('#block-wrapper .msg');
+var blockContainer = document.querySelector('#block-container');
+var endMsg = document.querySelector('#end-wrapper .msg');
+function gameStart() {
+	blockContainer.innerHTML = '';
+	blockMsg.innerHTML = '第 ' + level + ' 關';
+	color = randRGB();
+	var total = (blocksNum + level) * (blocksNum + level);
+	for(var i = 0; i < total; i++) {
+		var block = document.createElement('div');
+		block.classList.add('block');
+		block.style.background = color;
+		block.style.width = (100 / (blocksNum + level)) + '%';
+		block.style.height = (100 / (blocksNum + level)) + '%';
+		blockContainer.append(block);
+	}
+	var blocks = document.querySelectorAll('.block');
+	random = Math.floor(Math.random() * blocks.length);
+	opacity = Math.min(0.9 + level / 100, 0.99999);
+	blocks[random].style.opacity = opacity;
+	blocks.forEach(function(block, i) {
+		blocks[i].style.background = color;
+		blocks[i].n = i;
+		blocks[i].onclick = function() {
+			if(this.n == random) {
+				level++
+				gameStart();
+			}else{
+				var extraMsg = '';
+				if(level < 5 ) {
+					extraMsg = '妳的眼睛可能需要檢查一下';
+				}else if(level < 9) {
+					extraMsg = '眼睛功能一般般正常的程度';
+				}else if(level < 13) {
+					extraMsg = '超越常人的眼力';
+				}else{
+					extraMsg = '你確定妳是人類嗎？';
+				}
+				endMsg.innerHTML = '敗在第 ' + level + ' 關<div style="font-size:2rem">' + extraMsg + '</div>';
+				gameWrapper.style.transform = 'translateY(-1200px)';
+			}
+		}
+	});
+}
+
+//再次挑戰按鍵按下時執行
+var endBtn = document.querySelector('#end-wrapper button');
+endBtn.onclick = function() {
+	gameWrapper.style.transform = 'translateY(-600px)';
+	level = 1;
+	gameStart();
+}
+
+//隨機產生一組 RGB 色彩
+function randRGB() {
+	var r = Math.floor(Math.random() * 256);
+	var g = Math.floor(Math.random() * 256);
+	var b = Math.floor(Math.random() * 256);
+	return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+}
+</script>
+</body>
+</html>

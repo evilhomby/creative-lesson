@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+
+<body>
+<div id="btn" style="background:red;user-select:none;">example</div>
+<script>
+var color = 'red';
+document.querySelector('#btn').onclick = function() {
+	if(color == 'red') {
+		color = 'green';
+	}else if(color == 'green') {
+		color = 'blue';
+	}else{
+		color = 'red';
+	}
+	this.style.background = color;
+}
+</script>
+</body>
+</html>

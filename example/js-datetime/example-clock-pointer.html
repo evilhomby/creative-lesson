@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link href="https://fonts.googleapis.com/css?family=Baloo&display=swap" rel="stylesheet">
+<style>
+.container {
+	margin: 0px auto;
+	width: 300px;
+	height: 300px;
+	border: 5px solid #333;
+	border-radius: 100%;
+	position: relative;
+}
+.container::after {
+	content: '';
+	width: 20px;
+	height: 20px;
+	background: #333;
+	border-radius: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.container span {
+		width: 200px;
+		display: inline-block;
+}
+#hours {
+	width: 5px;
+	height: 30%;
+	margin: -30% 0px 0px calc(-5px / 2);
+	background: #333;
+}
+#minutes {
+	width: 3px;
+	height: 35%;
+	margin: -35% 0px 0px calc(-3px / 2);
+	background: #444;
+}
+#seconds {
+	width: 2px;
+	height: 40%;
+	margin: -40% 0px 0px calc(-2px / 2);
+	background: #333;
+}
+.clock-pointer {
+	position: absolute;
+	border-radius: 100% 100% 0 0;
+	top: 50%;
+	left: 50%;
+	transform-origin: center bottom;
+}
+</style>
+</head>
+
+<body>
+<div id="clock" class="container">
+	<span id="hours" class="clock-pointer"></span>
+	<span id="minutes" class="clock-pointer"></span>
+	<span id="seconds" class="clock-pointer"></span>
+</div>
+<script>
+var date = new Date();
+var h = document.querySelector('#hours');
+var m = document.querySelector('#minutes');
+var s = document.querySelector('#seconds');
+
+//每隔 1000 毫秒執行一個暱名函式
+setInterval(function() {
+	clock();
+}, 1000);
+
+function clock() {
+	h.style.transform = 'rotate(' + (30 * date.getHours()) +'deg)';
+	m.style.transform = 'rotate(' + (6 * date.getMinutes()) +'deg)';
+	s.style.transform = 'rotate(' + (6 * date.getSeconds()) +'deg)';
+	date.setSeconds(date.getSeconds() + 1);
+}
+
+//立刻執行函式
+clock();
+</script>
+</body>
+</html>

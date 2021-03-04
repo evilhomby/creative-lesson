@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Matrix Effect</title>
+<style>
+html, body {
+	margin: 0px;
+	padding: 0px;
+	background: #00130b;
+	overflow: hidden;
+}
+#container {
+	width: 100%;
+	height: 100vh;
+	position: relative;
+}
+.line {
+	width: 1em;
+	position: absolute;
+}
+.char {
+	text-align: center;
+	color: #64c38e;
+}
+.char:last-child {
+	color: #fff;
+}
+</style>
+</head>
+
+<body>
+<div id="container"></div>
+<script>
+var container = document.querySelector('#container');
+var lineCharNum = 50;
+var lineNum = 50;
+for(var i = 0; i < lineNum; i++) {
+	var line = document.createElement('div');
+	line.classList.add('line');
+	line.style.top = Math.floor(Math.random() * 401) - 200 + 'px';
+	line.style.left = Math.floor(Math.random() * window.innerWidth) + 'px'
+	line.style.filter = 'blur(' + Math.floor(Math.random() * 3) + 'px)';
+	container.append(line);
+	for(var j = 0; j < lineCharNum; j++) {
+		var char = document.createElement('div');
+		char.classList.add('char');
+		char.style.opacity = (1 / lineCharNum) * (j + 1);
+		line.append(char);
+	}
+}
+
+var lines = document.querySelectorAll('.line');
+var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz~!@#$%^&*()_';
+var arr = str.split('');
+var cursor = lineCharNum - 2;
+function randomChar() {
+	return arr[Math.floor(Math.random() * arr.length)];
+}
+var interval = setInterval(function(){
+	lines.forEach(function(line, i) {
+		var chars = line.querySelectorAll('.char');
+		chars[cursor].innerHTML = randomChar();
+		chars[lineCharNum - 1].innerHTML = randomChar();
+	});
+	if(cursor == 0) {
+		clearInterval(interval);
+	}
+	cursor--;
+}, 100);
+</script>
+</body>
+</html>

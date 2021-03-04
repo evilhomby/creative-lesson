@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+<style>
+.item {
+	height: 240px;
+	line-height: 240px;
+	text-align: center;
+	color: #fff;
+	background: #8bdcb7;
+	font-size: 64px;
+}
+.owl-nav {
+	position: relative;
+}
+.owl-nav button {
+	height: 240px;
+	width: 15px;
+	background: #3eaf7c !important;
+	transform: translateY(-100%);
+	position: absolute;
+	color: #fff !important;
+}
+.owl-nav button:focus {
+	outline: none;
+}
+.owl-prev {
+	border-radius: 5px 0px 0px 5px;
+	top: 0px;
+	left: 0px;
+}
+.owl-next {
+	border-radius: 0px 5px 5px 0px;
+	top: 0px;
+	right: 0px;
+}
+</style>
+</head>
+
+<body>
+<div class="owl-carousel">
+	<div class="item">A</div>
+	<div class="item">B</div>
+	<div class="item">C</div>
+	<div class="item">D</div>
+	<div class="item">E</div>
+	<div class="item">F</div>
+	<div class="item">G</div>
+	<div class="item">H</div>
+	<div class="item">I</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+$(function(){
+	$('.owl-carousel').owlCarousel({
+		items: 1,
+		dots: false,
+		nav: true,
+		loop: true,
+		autoplay: true,
+		autoplayHoverPause: true
+	});
+})
+</script>
+</body>
+</html>

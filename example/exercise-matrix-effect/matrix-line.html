@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style>
+#wrapper {
+	position: relative;
+}
+/* 需設定為絕對位標讓程式控制 top，left 進且偏移 */
+.line {
+	position: absolute;
+}
+/* 將最後一個要素改變顏色 */
+.line div:last-child {
+	color: #0f0;
+}
+</style>
+</head>
+<body>
+<div id="wrapper"></div>
+<script>
+var lineNum = 50; // 行數
+var num = 50; // 每行的字元數
+var strArr = ['a', 'b', 'c', 'd'];
+var wrapper = document.querySelector('#wrapper');
+
+// 產生 lineNum 行，移動坐標後加到容器 div#wrapper 中
+for(var l = 0; l < lineNum; l++) {
+	var line = document.createElement('div');
+	line.classList.add('line');
+	line.style.left = Math.floor(Math.random() * 1025) + 'px';
+	line.style.top = Math.floor(Math.random() * 201) + 'px';
+	wrapper.append(line);
+
+	//產生 num 個隨機字元，調整透明度後加到每一行中
+	for(var i = 0; i < num; i++) {
+		var randNum = Math.floor(Math.random() * strArr.length);
+		var randStr = strArr[randNum];
+		var char = document.createElement('div');
+		char.innerHTML = randStr;
+		char.style.opacity = 1 / num * (i + 1);
+		line.append(char);
+	}
+}
+</script>
+</body>
+</html>

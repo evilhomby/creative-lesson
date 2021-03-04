@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+#wrapper {
+	width: 640px;
+	height: 240px;
+}
+ul {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	width: 140px;
+	float: right;
+}
+a {
+	height: 60px;
+	line-height: 60px;
+	display: block;
+	color: #fff;
+	background: #3eaf7c;
+	text-align: center;
+	text-decoration: none;
+	transition: background 0.5s;
+}
+a:hover {
+	background: #2d9e7c;
+}
+.viewer {
+	width: 500px;
+	height: 100%;
+	overflow: hidden;
+}
+.tabs-container {
+	width: 2000px;
+	height: 100%;
+	transition: transform 0.5s;
+}
+.tab {
+	line-height: 239px;
+	width: 500px;
+	height: 100%;
+	background: #8bdcb7;
+	float: left;
+	color: #fff;
+	font-size: 64px;
+	text-align: center;
+}
+</style>
+</head>
+
+<body>
+<p>#wrapper>(ul>li*4>a#btn-$$[href="#"]{tab-$$})+.viewer>.tabs-container>.tab#tab-$${tab-$$}*4</p>
+<div id="wrapper">
+	<ul>
+		<li><a id="btn-01" href="#">熱門話題</a></li>
+		<li><a id="btn-02" href="#">心情專欄</a></li>
+		<li><a id="btn-03" href="#">感恩讚美</a></li>
+		<li><a id="btn-04" href="#">生殖專欄</a></li>
+	</ul>
+	<div class="viewer">
+		<div class="tabs-container">
+			<div id="tab-01" class="tab">熱門話題</div>
+			<div id="tab-02" class="tab">心情專欄</div>
+			<div id="tab-03" class="tab">感恩讚美</div>
+			<div id="tab-04" class="tab">生殖專欄</div>
+		</div>
+	</div>
+</div>
+<script>
+var btn01 = document.querySelector('#btn-01');
+var btn02 = document.querySelector('#btn-02');
+var btn03 = document.querySelector('#btn-03');
+var btn04 = document.querySelector('#btn-04');
+var container = document.querySelector('.tabs-container');
+btn01.onmouseover = function() {
+	container.style.transform = 'translate(0%)';
+}
+btn02.onmouseover = function() {
+	container.style.transform = 'translate(-25%)';
+}
+btn03.onmouseover = function() {
+	container.style.transform = 'translate(-50%)';
+}
+btn04.onmouseover = function() {
+	container.style.transform = 'translate(-75%)';
+}
+
+</script>
+</body>
+</html>

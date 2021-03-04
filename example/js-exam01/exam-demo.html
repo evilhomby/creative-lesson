@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+html, body {
+	margin: 0px;
+	padding: 0px;
+}
+#wrapper {
+	margin: 0px auto;
+	width: 640px;
+	height: 600px;
+	background: #8bdcb7;
+	border-radius: 10px;
+}
+.msg {
+	color: #fff;
+	font-size: 6rem;
+	text-align: center;
+	padding: 2rem;
+}
+.btn-group {
+	text-align: center;
+}
+button {
+	padding: 15px 20px;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	width: auto;
+}
+button:focus {
+	outline: none;
+}
+#block-container {
+	margin: 0px auto;
+	width: 400px;
+	height: 400px;
+	display: flex;
+	flex-wrap: wrap;
+	background: #fff;
+}
+.block {
+	margin: 0px;
+	padding: 0px;
+	width: 20%;
+	height: 20%;
+	display: inline-block;
+	background: #efefef;
+	outline: 1px solid rgba(255,255,255,0.5);
+	cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+<div id="wrapper">
+	<div class="msg">Level 1</div>
+	<div id="block-container">
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+	</div>
+</div>
+<script>
+var gameMsg = document.querySelector('.msg');
+var blocks = document.querySelectorAll('.block');
+
+//宣告一個變數存放隨機取得的一個顏色稍候使用
+var color = randRGB();
+
+//每一個 .block 都執行 function(a, b){} 裡的程式
+//參數 a 代表的是目前輪到的要素本身，b 代表目前的序號 (等同 for 迴圈的 i)
+//可用 for 迴圈改寫
+blocks.forEach(function(block, i) {
+	//提醒 block 等同於 blocks[i]，兩種寫法都可以
+	//設定 .block 的背景色
+	blocks[i].style.background = color;
+	//將 i 指定給 .block 的 n 屬性，稍候按鈕按下後使用才知道是按了那一個按鈕
+	blocks[i].n = i;
+	//綁定點擊事件到 .block 上
+	blocks[i].onclick = function() {
+		//當被按下時判斷 random 是否等於自己的 n 屬性
+		if(this.n == random) {
+			gameMsg.innerHTML = 'You win';
+		}else{
+			gameMsg.innerHTML = 'You lose';
+		}
+	}
+});
+
+//隨機取得一個 0 到 blocks.length-1 的整數
+var random = Math.floor(Math.random() * blocks.length);
+
+//隨機取得 0.85-0.95 的小數
+var opacity = (Math.floor(Math.random() * (95 - 85 + 1)) + 85) / 100;
+
+//設定隨機一個 div.block 透明度
+blocks[random].style.opacity = opacity;
+
+//宣告函式: 產生 RGB 色碼字串
+function randRGB() {
+	var r = Math.floor(Math.random() * 256);
+	var g = Math.floor(Math.random() * 256);
+	var b = Math.floor(Math.random() * 256);
+	return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+}
+</script>
+</body>
+</html>

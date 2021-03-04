@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Beads Creator</title>
+<style>
+html, body {
+	margin: 0px;
+	padding: 0px;
+}
+body {
+	background: #8bdcb7;
+}
+#wrapper {
+	padding-top: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+#canvas {
+	border-radius: 10px;
+	background: #fff;
+	width: 600px;
+	height: 600px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+.bead-container {
+	width: 20px;
+	height: 20px;
+	position: relative;
+	cursor: pointer;
+}
+.bead {
+	content: '';
+	position: absolute;
+	width: 30%;
+	height: 30%;
+	top: 50%;
+	left: 50%;
+	background: #efefef;
+	transform: translate(-50%, -50%);
+	border-radius: 100%;
+}
+.colored .bead {
+	box-sizing: border-box;
+	content: '';
+	position: absolute;
+	width: 90%;
+	height: 90%;
+	border: 5px solid #000;
+	border-radius: 100%;
+}
+#tools {
+	box-sizing: border-box;
+	padding: 10px;
+	width: 600px;
+	border-radius: 10px;
+	background: #fff;
+	margin: 30px auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.colorbox {
+	width: 30px;
+	height: 30px;
+	border: 3px solid transparent;
+	position: relative;
+}
+.active-color::before  {
+	content: '';
+	position: absolute;
+	width: 30%;
+	height: 30%;
+	top: 50%;
+	left: 50%;
+	background: #efefef;
+	transform: translate(-50%, -50%);
+	border-radius: 100%;
+}
+#colorpicker {
+	width: 600px;
+	background: #fff;
+	box-sizing: border-box;
+	padding: 10px;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+#color {
+	width: 50px;
+	height: 50px;
+	background: #000;
+}
+</style>
+</head>
+
+<body>
+<div id="wrapper">
+	<div id="canvas"></div>
+	<div id="tools"></div>
+	<div id="colorpicker">
+		<div id="container">
+			<input type="range" id="red" min="0" max="255" value="0">
+			<input type="range" id="green" min="0" max="255" value="0">
+			<input type="range" id="blue" min="0" max="255" value="0">
+		</div>
+		<div id="color"></div>
+	</div>
+</div>
+<script>
+var canvas = document.querySelector('#canvas');
+var beads = 900;
+var color = '#000';
+for(var i = 0; i < beads; i++) {
+	var beadContainer = document.createElement('div');
+	beadContainer.classList.add('bead-container');
+	canvas.append(beadContainer);
+	var bead = document.createElement('div');
+	bead.classList.add('bead');
+	beadContainer.append(bead);
+	beadContainer.onclick = function() {
+		this.classList.toggle('colored');
+		this.querySelector('.bead').style.borderColor = color;
+	}
+}
+var colors = [
+	'#000',
+	'#fff',
+	'#f00',
+	'#0f0',
+	'#00f',
+	'#f0f',
+	'#ff0',
+	'#0ff'
+];
+var tools = document.querySelector('#tools');
+colors.forEach(function(v, i) {
+	var colorbox = document.createElement('div');
+	colorbox.classList.add('colorbox');
+	colorbox.color = colors[i];
+	colorbox.style.background = colors[i];
+	colorbox.onclick = function() {
+		color = this.color;
+		var activeColor = document.querySelector('.active-color');
+		console.log(activeColor);
+		if(activeColor) {
+			activeColor.classList.remove('active-color');
+		}
+		this.classList.add('active-color');
+	}
+	tools.append(colorbox);
+});
+
+var colorpicker = document.querySelector('#color');
+var inputs = document.querySelectorAll('input');
+inputs.forEach(function(input, i) {
+	input.onchange = function() {
+		var r = inputs[0].value;
+		var g = inputs[1].value;
+		var b = inputs[2].value;
+		var rgb = 'rgb(' + r + ',' + g + ',' + b + ')';
+		colorpicker.style.background = rgb;
+		color = rgb;
+	}
+});
+</script>
+</body>
+</html>

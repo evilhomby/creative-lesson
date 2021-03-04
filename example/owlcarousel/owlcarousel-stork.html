@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+<style>
+.container {
+	width: 640px;
+}
+.owl-carousel {
+	width: 500px;
+}
+.item {
+	height: 240px;
+	line-height: 240px;
+	text-align: center;
+	color: #fff;
+	background: #8bdcb7;
+	font-size: 64px;
+}
+#tabs {
+	float: right;
+	width: 140px;
+}
+#tabs button {
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
+	display: block;
+	background: #3eaf7c !important;
+	color: #fff !important;
+	border: none;
+}
+#tabs button:hover {
+	background: #2d9e7c;
+}
+#tabs button:focus {
+	outline: none;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+	<div id="tabs">
+		<button>A</button>
+		<button>B</button>
+		<button>C</button>
+		<button>D</button>
+	</div>
+	<div class="owl-carousel">
+		<div class="item">A</div>
+		<div class="item">B</div>
+		<div class="item">C</div>
+		<div class="item">D</div>
+	</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+$(function(){
+	var owl = $('.owl-carousel').owlCarousel({
+		items: 1,
+		dots: true,
+		loop: true,
+		dotsContainer: '#tabs'
+	});
+	$('#tabs').on('mouseover', 'button', function() {
+		owl.trigger('to.owl.carousel', [$(this).index(), 300]);
+	});
+})
+</script>
+</body>
+</html>

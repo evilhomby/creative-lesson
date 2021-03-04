@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+#btn {
+	margin-bottom: 20px;
+	padding: 10px 20px;
+	display: inline-block;
+	color: #fff;
+	background: #3eaf7c;
+	text-align: center;
+	text-decoration: none;
+	transition: background 0.5s;
+	cursor: pointer;
+	user-select: none;
+}
+#btn:hover {
+	background: #2d9e7c;
+}
+.box {
+	width: 2px;
+	height: 2px;
+	display: inline-block;
+	animation: 0.5s upanddown infinite alternate;
+	/* transform-origin: center bottom; */
+}
+@keyframes upanddown {
+	from {
+		transform: scaleY(1);
+	}
+	to {
+		transform: scaleY(20);
+	}
+}
+</style>
+</head>
+
+<body>
+<div id="wrapper">
+	<div id="btn">Click</div>
+	<div id="container"></div>
+</div>
+<script>
+var container = document.querySelector('#container');
+var btn = document.querySelector('#btn');
+btn.onclick = function() {
+	for(var i = 0; i < 100; i++) {
+		var box = document.createElement('div');
+		box.className = 'box';
+		box.style.background = randRGB();
+		box.style.animationDelay = Math.random() + 's';
+		//box.style.animationDuration = Math.random() + 1 + 's';
+		container.append(box);
+	}
+}
+
+function randRGB() {
+	var r = Math.floor(Math.random() * 256);
+	var g = Math.floor(Math.random() * 256);
+	var b = Math.floor(Math.random() * 256);
+	//var g = '00';
+	//var b = '00';
+	return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+}
+</script>
+</body>
+</html>

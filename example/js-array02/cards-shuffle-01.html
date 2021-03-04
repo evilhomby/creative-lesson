@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+body {
+	text-align: center;
+}
+#container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-items: center;
+	margin: 0px auto;
+	width: 1006px ;
+	height: 425px;
+	border-radius: 5px;
+	background: #8bdcb7;
+
+}
+#btn-shuffle {
+	margin-bottom: 20px;
+	padding: 10px 20px;
+	display: inline-block;
+	color: #fff;
+	background: #3eaf7c;
+	text-align: center;
+	text-decoration: none;
+	transition: background 0.5s;
+	cursor: pointer;
+	user-select: none;
+	border: none;
+	border-radius: 5px;
+}
+#btn-shuffle:focus {
+	outline: none;
+}
+.card {
+	width: 72px;
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+	background-image: url(cards.png);
+	border-radius: 5px;
+}
+</style>
+</head>
+
+<body>
+<div>
+	<button id="btn-shuffle">洗牌</button>
+</div>
+<div id="container"></div>
+<script>
+var container = document.querySelector('#container');
+var cardNum = 52;
+var suits = ['黑桃', '紅心', '方塊', '梅花'];
+var cards = [];
+
+//產生依順序的撲克牌組 (陣列)
+for(var i = 0; i < cardNum; i++) {
+	var suit = Math.floor(i / 13);
+	var number = i % 13 + 1;
+	cards.push(suits[suit] + '-' + number);
+}
+
+//將依順序的撲克牌加到畫面上
+function showCards() {
+	//將 container 清空
+	container.innerHTML = '';
+	cards.forEach(function(v, i) {
+		var card = document.createElement('div');
+		card.classList.add('card');
+
+		//顯示文字
+		//card.innerHTML = v;
+
+		//如果圖片是 sprite 圖，需要自行換算背景圖位置
+		//將值以「-」拆分為花色與數字
+		var suit = suits.indexOf(v.split('-')[0]);
+		var number = v.split('-')[1];
+		card.style.backgroundPosition = -72 * (number - 1) + 'px ' + -100 * suit + 'px';
+
+		//如果圖片是 52 個獨立的檔案，例：黑桃-1.jpg
+		//card.innerHTML = '<img src="' + v + '.jpg">';
+
+		container.append(card);
+	});
+}
+showCards();
+
+//洗牌
+document.querySelector('#btn-shuffle').onclick = function() {
+  var res = [];
+  var length = cards.length;
+  for(var i = 0; i < length; i++) {
+  	var rand = Math.floor(Math.random() * cards.length);
+  	res.push(cards[rand]);
+  	cards.splice(rand, 1);
+  }
+  //注意！隨機洗牌後 cards 陣列會變成空陣列，將 res (洗好的結果) 再存回 cards
+  cards = res;
+  showCards();
+}
+</script>
+</body>
+</html>

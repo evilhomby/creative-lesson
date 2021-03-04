@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+html, body {
+	margin: 0px;
+	padding: 0px;
+}
+#wrapper {
+	margin: 0px auto;
+	width: 100%;
+	max-width: 960px;
+	text-align: center;
+}
+#card-wrapper {
+	width: 100%;
+	height: 240px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.card {
+	margin: 20px;
+	width: 300px;
+	height: 200px;
+	line-height: 200px;
+	text-align: center;
+	background: #8bdcb7;
+	border: 2px solid #8bdcb7;
+	border-radius: 5px;
+	box-shadow: 0px 3px 3px #ccc;
+	cursor: pointer;
+	transition: 0.5s all;
+	color: #fff;
+	font-size: 48px;
+}
+.card.selected {
+	border: 2px solid #3eaf7c;
+	box-shadow: 0px 6px 12px #ccc;
+	transform: translateY(-6px);
+}
+#msg {
+	margin: 20px auto;
+	height: 2em;
+	line-height: 2em;
+	background: #8bdcb7;
+	border-radius: 5px;
+	color: #fff;
+}
+button {
+    padding: 10px 20px;
+    display: inline-block;
+    color: #fff;
+    border: none;
+    background: #3eaf7c;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.5s;
+    cursor: pointer;
+    user-select: none;
+}
+button:focus {
+	outline: none;
+}
+</style>
+</head>
+
+<body>
+<div id="wrapper">
+	<div id="card-wrapper">
+		<div class="card">A</div>
+		<div class="card">B</div>
+		<div class="card">C</div>
+	</div>
+	<div id="msg"></div>
+	<button>開始</button>
+</div>
+<script>
+var select;
+var cards = document.querySelectorAll('.card')
+for(var i = 0; i < cards.length; i++) {
+	cards[i].n = i;
+	cards[i].onclick = function() {
+		for(var j = 0; j < cards.length; j++) {
+			cards[j].classList.remove('selected');
+		}
+		this.classList.add('selected');
+		select = this.n;
+	}
+}
+var msg = document.querySelector('#msg');
+var startBtn = document.querySelector('button');
+startBtn.onclick = function() {
+	var random = Math.floor(Math.random() * cards.length); // 0, 1, 2
+	if(select != undefined) {
+		if(select == random ){
+			msg.innerHTML = '中獎';
+		}else{
+			msg.innerHTML = '幸運女神下次會眷顧你的！';
+		}
+	}else{
+		msg.innerHTML = '請選擇';
+	}
+}
+</script>
+</body>
+</html>

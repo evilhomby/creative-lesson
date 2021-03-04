@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+html, body {
+	margin: 0px;
+	padding: 0px;
+}
+#wrapper {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#grid {
+	width: 600px;
+	height: 600px;
+	padding: 15px;
+	border: 2px solid #999;
+}
+.row {
+	width: 100%;
+	height: 10%;
+	outline: 1px solid rgba(255, 0, 0, 0.5);
+}
+.col {
+	display: inline-block;
+	width: 10%;
+	height: 100%;
+	outline: 1px solid #999;
+	cursor: pointer;
+	background: #fff;
+	transition: 0.5s background;
+	position: relative;
+}
+.col:hover {
+	background: #ccc;
+}
+.col.white::after, .col.black::after {
+	position: absolute;
+	content: '';
+	width: 70%;
+	height: 70%;
+	top: 50%;
+	left: 50%;
+	border-radius: 100%;
+	transform: translate(-50%, -50%);
+	box-shadow: 0px 0px 3px #000;
+}
+.col.black::after {
+	background: #000;
+}
+.col.white::after {
+	background: #fff;
+}
+</style>
+</head>
+
+<body>
+<div id="wrapper">
+	<div id="grid"></div>
+</div>
+<script>
+//黑子先下
+var current = 'black';
+var grid = document.querySelector('#grid');
+for(var row = 0; row < 10; row++) {
+	
+	//產生 10 列並加到 grid (棋盤)
+	var rowElement = document.createElement('div');
+	rowElement.className = 'row'
+	grid.append(rowElement);
+
+	for(var col = 0; col < 10; col++) {
+		var colElement = document.createElement('div');
+		colElement.className = 'col';
+		colElement.onclick = function() {
+
+			//將 className 加上 black 或 white
+			this.classList.add(current);
+
+			//每個格子只能下一次
+			this.onclick = null;
+
+			//切換目前是黑子或白子下棋
+			if(current == 'black') {
+				current = 'white'
+			}else{
+				current = 'black';
+			}
+		}
+		rowElement.append(colElement);
+	}
+}
+</script>
+</body>
+</html>
